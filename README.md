@@ -48,7 +48,7 @@ It is more than just a collection of projects—it's a place where I showcase my
 
 ## 🌍 Live Website
 
-**Portfolio:** https://your-portfolio.vercel.app
+**Portfolio:** https://portfolio-sooty-eight-62.vercel.app/
 
 ---
 
