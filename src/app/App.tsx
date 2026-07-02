@@ -297,7 +297,7 @@ function Hero() {
 
           <FadeIn delay={0.25}>
             <p className="text-xl lg:text-2xl text-blue-400 font-medium mb-5 font-display">
-              Full Stack Developer &amp; Gen AI Enthusiast
+              Full Stack Developer, AI Engineer &amp; Generative AI
             </p>
           </FadeIn>
 
@@ -1332,12 +1332,38 @@ function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    toast.success("Message sent! I'll respond within 24 hours.", {
-      description: "Looking forward to connecting with you.",
-    });
-    setForm({ name: "", email: "", subject: "", message: "" });
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || "Failed to send message");
+      }
+
+      toast.success("Message sent! I'll respond within 24 hours.", {
+        description: "Looking forward to connecting with you.",
+      });
+
+      setForm({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass =
@@ -1547,8 +1573,21 @@ function Footer() {
 }
 
 // ─── App ──────────────────────────────────────────────────────────────────────
+const FAVICON_B64 = "";
 
 export default function App() {
+  useEffect(() => {
+    const existing = document.querySelector(
+      "link[rel~='icon']",
+    ) as HTMLLinkElement | null;
+    const link: HTMLLinkElement = existing ?? document.createElement("link");
+    link.rel = "icon";
+    link.type = "image/png";
+    link.href = FAVICON_B64;
+    if (!existing) document.head.appendChild(link);
+    document.title = "Aman Singh | Full Stack Developer & Gen AI";
+  }, []);
+
   return (
     <div
       className="min-h-screen bg-[#0B0B0F]"

@@ -1,3 +1,7 @@
 node_modules
 guidelines
 README.md
+.env
+.vercel
+.env*
+.env.local
