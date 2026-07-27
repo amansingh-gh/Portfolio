@@ -226,24 +226,26 @@ function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-[#0D0D12]/95 backdrop-blur-2xl border-b border-white/5 px-6 py-4"
+            className="md:hidden bg-[#0D0D12]/95 backdrop-blur-2xl border-b border-white/5 px-6 py-8 flex flex-col items-center"
           >
             {NAV_LINKS.map((link) => (
               <a
-                href="/resume/Aman_Singh_Resume.pdf"
-                download
-                className="mt-4 flex items-center justify-center gap-2 py-3 bg-red-500 text-white rounded-xl z-50 relative"
+                key={link}
+                href={`#${link.toLowerCase()}`}
+                onClick={() => setMenuOpen(false)}
+                className="py-4 text-lg text-slate-300 hover:text-white transition-colors duration-200"
               >
-                <Download size={14} />
-                Download Resume
+                {link}
               </a>
             ))}
+
             <a
               href="/resume/Aman_Singh_Resume.pdf"
               download="Aman_Singh_Resume.pdf"
-              className="mt-4 flex items-center justify-center gap-2 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-xl text-sm font-medium transition-colors"
+              onClick={() => setMenuOpen(false)}
+              className="mt-8 w-full max-w-sm flex items-center justify-center gap-2 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-xl text-sm font-medium transition-colors duration-200"
             >
-              <Download size={14} />
+              <Download size={16} />
               Download Resume
             </a>
           </motion.div>
@@ -550,29 +552,29 @@ function About() {
 
 const SKILL_CATEGORIES = [
   {
+    id: "backend",
+    label: "Backend",
+    icon: Server,
+    skills: [
+      { name: "Spring Boot", level: 92 },
+      { name: "Node.js", level: 90 },
+      { name: "Express", level: 90 },
+      { name: "FastAPI", level: 70 },
+      // { name: "Django", level: 78 },
+      // { name: "tRPC", level: 80 },
+    ],
+  },
+  {
     id: "frontend",
     label: "Frontend",
     icon: Code2,
     skills: [
       { name: "React", level: 85 },
-      { name: "Next.js", level: 80 },
+      // { name: "Next.js", level: 80 },
       { name: "TypeScript", level: 80 },
       { name: "Tailwind CSS", level: 90 },
-      { name: "Vue.js", level: 75 },
+      // { name: "Vue.js", level: 75 },
       // { name: "Redux / Zustand", level: 75 },
-    ],
-  },
-  {
-    id: "backend",
-    label: "Backend",
-    icon: Server,
-    skills: [
-      { name: "Node.js", level: 95 },
-      { name: "Express", level: 90 },
-      { name: "FastAPI", level: 85 },
-      { name: "Django", level: 78 },
-      // { name: "GraphQL", level: 82 },
-      // { name: "tRPC", level: 80 },
     ],
   },
   {
@@ -582,9 +584,9 @@ const SKILL_CATEGORIES = [
     skills: [
       { name: "MongoDB", level: 95 },
       { name: "MySQL", level: 92 },
-      { name: "PostgreSQL", level: 85 },
+      { name: "PostgreSQL", level: 80 },
       { name: "Redis", level: 80 },
-      // { name: "Prisma ORM", level: 88 },
+      { name: "H2", level: 80 },
       { name: "Firebase", level: 86 },
     ],
   },
@@ -606,10 +608,10 @@ const SKILL_CATEGORIES = [
     label: "Languages",
     icon: Terminal,
     skills: [
-      { name: "JavaScript", level: 95 },
-      { name: "TypeScript", level: 90 },
+      { name: "JavaScript", level: 92 },
+      { name: "TypeScript", level: 80 },
       { name: "Python", level: 90 },
-      { name: "Java", level: 70 },
+      { name: "Java", level: 95 },
       { name: "SQL", level: 88 },
       { name: "Bash", level: 90 },
     ],
@@ -620,11 +622,12 @@ const SKILL_CATEGORIES = [
     icon: Wrench,
     skills: [
       { name: "Git / GitHub", level: 96 },
-      { name: "Figma", level: 80 },
+      { name: "Figma", level: 90 },
       { name: "OpenAI API", level: 86 },
       { name: "LangChain", level: 78 },
       { name: "Postman", level: 95 },
-      // { name: "Jira / Linear", level: 85 },
+      { name: "Jira / Linear", level: 85 },
+      { name: "ClickUp", level: 85 },
     ],
   },
 ];
@@ -805,7 +808,6 @@ function Experience() {
 }
 
 // ─── Projects ────────────────────────────────────────────────────────────────
-
 const PROJECTS = [
   {
     title: "ResumeIQ AI",
@@ -822,11 +824,15 @@ const PROJECTS = [
     ],
     github: "https://github.com/amansingh-gh/ResumeIQ--Backend",
     demo: "https://resume-iq-frontend-seven.vercel.app/",
+    url: "https://resume-iq-frontend-seven.vercel.app/",
     featured: true,
     category: "Generative AI",
-    gradient: "from-blue-500 to-cyan-400",
+    gradient: "from-blue-500 via-indigo-500 to-purple-500",
+    glowColor: "rgba(99,102,241,0.25)",
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=675&fit=crop&auto=format",
+    imageAlt: "AI resume analysis interface",
   },
-
   {
     title: "Heart-AI",
     description:
@@ -834,9 +840,13 @@ const PROJECTS = [
     tech: ["Python", "Flask", "TensorFlow", "XGBoost", "SQLite", "Chart.js"],
     github: "https://github.com/amansingh-gh/Heart-AI",
     demo: "https://heart-disease-pred-4z15.onrender.com/",
+    url: "https://heart-disease-pred-4z15.onrender.com/",
     featured: true,
     category: "Artificial Intelligence",
     gradient: "from-red-500 to-pink-500",
+    glowColor: "rgba(239,68,68,0.25)", // matched with red/pink gradient
+    image: "https://images.unsplash.com/photo-1682706841291-d4aadc6fde6c?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=1200&h=675&fit=crop&auto=format",
+    imageAlt: "Heart-AI analytics dashboard",
   },
   {
     title: "SimpleSolHub",
@@ -845,9 +855,13 @@ const PROJECTS = [
     tech: ["PHP", "MySQL", "JavaScript", "Bootstrap", "HTML/CSS"],
     github: "https://github.com/amansingh-gh/SimpleSolHub",
     demo: "https://simplesolhub.unaux.com/",
+    url: "https://simplesolhub.unaux.com/",
     featured: true,
     category: "Marketplace Platform",
     gradient: "from-indigo-500 to-blue-500",
+    glowColor: "rgba(99,102,241,0.25)", // matched with indigo gradient
+    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&h=675&fit=crop&auto=format",
+    imageAlt: "SimpleSolHub service marketplace",
   },
   {
     title: "AirVision",
@@ -856,11 +870,14 @@ const PROJECTS = [
     tech: ["Python", "Flask", "LSTM", "Pandas", "NumPy", "Chart.js"],
     github: "https://github.com/amansingh-gh/AirVision-Python",
     demo: "https://airvision-python.onrender.com/",
+    url: "https://airvision-python.onrender.com/",
     featured: false,
     category: "Data Science",
     gradient: "from-emerald-500 to-teal-400",
+    glowColor: "rgba(16,185,129,0.25)", // matched with emerald gradient
+    image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=1200&h=675&fit=crop&auto=format",
+    imageAlt: "AirVision environmental dashboard",
   },
-
   {
     title: "Contact Vault Backend",
     description:
@@ -868,11 +885,14 @@ const PROJECTS = [
     tech: ["Node.js", "Express.js", "MongoDB", "JWT", "Mongoose"],
     github: "https://github.com/amansingh-gh/ContactVault---Backend",
     demo: "https://github.com/amansingh-gh/ContactVault---Backend",
+    url: "https://github.com/amansingh-gh/ContactVault---Backend",
     featured: false,
     category: "Backend Engineering",
     gradient: "from-sky-500 to-blue-500",
+    glowColor: "rgba(14,165,233,0.25)", // matched with sky gradient
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=675&fit=crop&auto=format",
+    imageAlt: "Backend code structure and API",
   },
-
   {
     title: "JournalApp Backend",
     description:
@@ -880,75 +900,170 @@ const PROJECTS = [
     tech: ["Spring Boot", "Spring Security", "Java", "JWT", "MySQL"],
     github: "https://github.com/amansingh-gh/JournalApp-Backend#",
     demo: "https://github.com/amansingh-gh/JournalApp-Backend",
+    url: "https://github.com/amansingh-gh/JournalApp-Backend",
     featured: false,
     category: "Backend Engineering",
     gradient: "from-green-500 to-emerald-400",
+    glowColor: "rgba(34,197,94,0.25)", // matched with green gradient
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=675&fit=crop&auto=format",
+    imageAlt: "Spring Boot architecture visualization",
   },
 ];
+
+type Project = (typeof PROJECTS)[0];
+
+function BrowserMockup({
+  image,
+  imageAlt,
+  url,
+  title,
+}: {
+  image: string;
+  imageAlt: string;
+  url: string;
+  title: string;
+}) {
+  return (
+    <div className="relative w-full rounded-xl overflow-hidden border border-white/8 bg-[#0D0D12] shadow-[0_8px_32px_rgba(0,0,0,0.5)] group-hover:shadow-[0_12px_48px_rgba(0,0,0,0.6)] transition-shadow duration-300">
+      {/* Browser chrome */}
+      <div className="flex items-center gap-0 px-4 h-9 bg-[#1a1c23] border-b border-white/5 flex-shrink-0">
+        {/* Traffic lights */}
+        <div className="flex items-center gap-1.5 mr-4">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F57] shadow-[0_0_6px_rgba(255,95,87,0.6)]" />
+          <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] shadow-[0_0_6px_rgba(255,189,46,0.6)]" />
+          <div className="w-2.5 h-2.5 rounded-full bg-[#28C840] shadow-[0_0_6px_rgba(40,200,64,0.6)]" />
+        </div>
+        {/* Address bar */}
+        <div className="flex-1 flex items-center gap-2 px-3 py-1 rounded-md bg-[#0D0D12] border border-white/5 max-w-[260px] mx-auto">
+          <div className="w-2 h-2 rounded-full bg-emerald-400/70 flex-shrink-0" />
+          <span className="text-[10px] text-slate-500 truncate font-mono tracking-tight">
+            {url === "#" ? `${title.toLowerCase().replace(/\s+g/, "-")}.vercel.app` : url.replace(/^https?:\/\//, '')}
+          </span>
+        </div>
+      </div>
+      {/* Screenshot */}
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block relative overflow-hidden aspect-video bg-[#16181D] cursor-pointer"
+        aria-label={`Open ${imageAlt}`}
+        onClick={(e) => url === "#" && e.preventDefault()}
+      >
+        <img
+          src={image}
+          alt={imageAlt}
+          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+          loading="lazy"
+        />
+        {/* Gradient overlay — bottom fade */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#16181D]/70 via-transparent to-transparent pointer-events-none" />
+        {/* Hover overlay */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center pointer-events-none">
+          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-medium">
+            <ExternalLink size={12} /> Open Project
+          </div>
+        </div>
+      </a>
+    </div>
+  );
+}
 
 function ProjectCard({
   project,
   featured = false,
 }: {
-  project: (typeof PROJECTS)[0];
+  project: Project;
   featured?: boolean;
 }) {
   return (
     <div
-      className={`group relative flex flex-col p-6 rounded-2xl bg-[#16181D] border border-white/5 hover:border-white/12 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(0,0,0,0.5)] overflow-hidden ${
+      className={`group relative flex flex-col rounded-[22px] bg-[#13141a] border border-white/[0.07] transition-all duration-300 hover:-translate-y-2 overflow-hidden ${
         featured ? "lg:col-span-2" : ""
       }`}
+      style={{
+        boxShadow: "0 4px 24px rgba(0,0,0,0.4)",
+      }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLDivElement).style.boxShadow = `0 20px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.1), 0 0 80px ${project.glowColor}`;
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 24px rgba(0,0,0,0.4)";
+      }}
     >
-      {/* Top gradient bar */}
+      {/* Subtle top gradient line */}
       <div
-        className={`absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r ${project.gradient} opacity-70 group-hover:opacity-100 transition-opacity`}
+        className={`absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r ${project.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`}
       />
 
-      <div className="flex items-start justify-between gap-4 mb-4 mt-2">
-        <div>
-          {featured && (
-            <span className="inline-block px-2.5 py-0.5 text-[11px] font-semibold bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 rounded-full mb-2">
-              ⭐ Featured
-            </span>
-          )}
-          <span className="block text-[11px] text-slate-500 uppercase tracking-wider mb-1">
-            {project.category}
-          </span>
-          <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors font-display">
-            {project.title}
-          </h3>
-        </div>
-        <div className="flex gap-2 flex-shrink-0">
-          <a
-            href={project.github}
-            className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/10 text-slate-400 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all"
-            aria-label="GitHub"
-          >
-            <Github size={14} />
-          </a>
-          <a
-            href={project.demo}
-            className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/10 text-slate-400 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all"
-            aria-label="Live demo"
-          >
-            <ExternalLink size={14} />
-          </a>
-        </div>
+      {/* Browser mockup screenshot */}
+      <div className="p-4 pb-0">
+        <BrowserMockup
+          image={project.image}
+          imageAlt={project.imageAlt}
+          url={project.url}
+          title={project.title}
+        />
       </div>
 
-      <p className="text-slate-400 text-sm leading-relaxed mb-5 flex-1">
-        {project.description}
-      </p>
+      {/* Card body */}
+      <div className="flex flex-col flex-1 p-6 pt-5 gap-4">
 
-      <div className="flex flex-wrap gap-2">
-        {project.tech.map((t) => (
-          <span
-            key={t}
-            className="px-2.5 py-1 text-xs bg-white/4 text-slate-300 border border-white/8 rounded-lg"
-          >
-            {t}
-          </span>
-        ))}
+        {/* Row: badges + action buttons */}
+        <div className="flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            {featured && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold bg-amber-400/10 text-amber-300 border border-amber-400/20 rounded-full">
+                <span className="text-amber-400">✦</span> Featured
+              </span>
+            )}
+            <span className="inline-block px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] uppercase text-slate-500 border border-white/6 rounded-full bg-white/[0.03]">
+              {project.category}
+            </span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View on GitHub"
+              className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/8 text-slate-500 hover:text-white hover:border-white/25 hover:bg-white/8 transition-all duration-200"
+            >
+              <Github size={14} />
+            </a>
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Live demo"
+              className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/8 text-slate-500 hover:text-blue-400 hover:border-blue-400/30 hover:bg-blue-400/8 transition-all duration-200"
+            >
+              <ExternalLink size={14} />
+            </a>
+          </div>
+        </div>
+
+        {/* Title */}
+        <h3 className="text-[1.2rem] font-bold text-white leading-snug font-display group-hover:text-blue-200 transition-colors duration-300">
+          {project.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-[0.8375rem] text-slate-400 leading-[1.7] flex-1 line-clamp-4">
+          {project.description}
+        </p>
+
+        {/* Tech stack pills */}
+        <div className="flex flex-wrap gap-1.5 pt-1">
+          {project.tech.map((t) => (
+            <span
+              key={t}
+              className="px-2.5 py-[5px] text-[11px] font-medium text-slate-400 bg-white/[0.04] border border-white/[0.07] rounded-full hover:text-white hover:border-white/15 transition-colors duration-200"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -961,11 +1076,7 @@ function Projects() {
         <FadeIn>
           <SectionHeader
             label="Portfolio"
-            title={
-              <>
-                Featured <GradientText>Projects</GradientText>
-              </>
-            }
+            title={<>Featured <GradientText>Projects</GradientText></>}
             subtitle="A selection of projects I'm proud to have built — from idea to production"
           />
         </FadeIn>
@@ -981,7 +1092,9 @@ function Projects() {
         <FadeIn delay={0.25}>
           <div className="text-center mt-12">
             <a
-              href="https://github.com/amansingh-gh/"
+              href="https://github.com/amansingh-gh"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 border border-white/10 text-slate-400 hover:text-white hover:border-white/25 rounded-xl transition-all text-sm"
             >
               View All Projects on GitHub <Github size={16} />
