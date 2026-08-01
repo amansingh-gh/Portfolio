@@ -299,16 +299,16 @@ function Hero() {
 
           <FadeIn delay={0.25}>
             <p className="text-xl lg:text-2xl text-blue-400 font-medium mb-5 font-display">
-              Full Stack Developer, AI Engineer &amp; Generative AI
+              Java Backend Developer, AI Engineer &amp; Generative AI
             </p>
           </FadeIn>
 
           <FadeIn delay={0.35}>
             <p className="text-slate-400 text-lg max-w-xl mb-10 leading-relaxed">
-              Building elegant, scalable web applications and intelligent
-              AI-powered experiences. Passionate about merging software
-              engineering with generative AI to create products that truly
-              matter.
+              Java Backend Developer focused on building scalable APIs, secure
+              systems, and production-ready applications with Spring Boot.
+              Exploring Generative AI to create intelligent software that
+              delivers real business value.
             </p>
           </FadeIn>
 
@@ -432,10 +432,10 @@ function Hero() {
 // ─── About ───────────────────────────────────────────────────────────────────
 
 const ABOUT_DETAILS = [
-  { label: "Location", value: "New Delhi, India" },
+  { label: "Location", value: " Gurugram, India" },
   { label: "Email", value: "akamansingh07@gmail.com" },
   { label: "Available", value: "Immediately" },
-  { label: "Preferred", value: "Remote / Hybrid" },
+  { label: "Preferred", value: "Onsite/ Remote / Hybrid" },
 ];
 
 function About() {
@@ -448,28 +448,41 @@ function About() {
               <span className="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase text-blue-400 border border-blue-400/30 rounded-full bg-blue-400/5 mb-6">
                 About Me
               </span>
+
               <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight font-display">
-                Building Intelligent{" "}
-                <GradientText>Digital Experiences</GradientText>
+                Building Scalable <GradientText>Backend Systems</GradientText>
               </h2>
+
               <p className="text-slate-400 mb-4 leading-relaxed">
-                I'm a Full Stack Developer and Gen AI Enthusiast with 1+ year of
-                hands-on experience building scalable web applications and
-                AI-powered solutions. I specialize in React, Node.js, and
-                integrating LLMs into real-world products.
+                I'm a{" "}
+                <strong className="text-white">Java Backend Developer</strong>{" "}
+                passionate about building secure, scalable, and maintainable
+                backend applications using{" "}
+                <strong className="text-white">
+                  Java, Spring Boot, Spring Security, JPA/Hibernate, MySQL,
+                </strong>{" "}
+                and REST APIs. I enjoy transforming complex business
+                requirements into clean, production-ready solutions.
               </p>
+
               <p className="text-slate-400 mb-4 leading-relaxed">
-                My passion lies at the intersection of software engineering and
-                generative AI — from crafting smooth user interfaces to
-                designing intelligent backends that leverage the latest
-                foundation models and APIs.
+                My focus is on designing robust APIs, implementing
+                authentication & authorization, optimizing database performance,
+                and writing clean, modular code that is easy to scale and
+                maintain. I believe great software starts with strong
+                architecture and attention to detail.
               </p>
+
               <p className="text-slate-400 mb-10 leading-relaxed">
-                When I'm not coding, I explore the latest in AI research,
-                contribute to open-source projects, and experiment with
-                LangChain, RAG pipelines, and multimodal models. Always curious,
-                always building.
+                Beyond backend development, I'm deeply interested in{" "}
+                <strong className="text-white">Generative AI</strong> and
+                continuously explore how intelligent systems can enhance modern
+                applications. Whether it's learning new technologies,
+                contributing to personal projects, or solving challenging
+                engineering problems, I'm always focused on building software
+                that creates real impact.
               </p>
+
               <div className="grid grid-cols-2 gap-3">
                 {ABOUT_DETAILS.map(({ label, value }) => (
                   <div
@@ -724,7 +737,7 @@ const EXPERIENCE = [
     location: "Gurugram, India (Remote)",
     description:
       "Developing scalable backend solutions by building secure RESTful APIs, implementing authentication and database operations, validating and documenting APIs, integrating third-party services, and collaborating with engineering teams to deliver reliable, production-ready applications.",
-    tech: ["Node.js", "MongoDB", "Swagger", "REST APIs", "Mongoose"],
+    tech: ["Node.js", "Express.js", "MongoDB", "Swagger", "REST APIs", "Mongoose"],
     current: true,
   },
 ];
@@ -741,7 +754,7 @@ function Experience() {
                 Professional <GradientText>Experience</GradientText>
               </>
             }
-            subtitle="My professional journey building full-stack apps and AI-powered products"
+           subtitle="My journey developing production-ready backend systems, REST APIs, and scalable enterprise applications."
           />
         </FadeIn>
 
@@ -809,6 +822,74 @@ function Experience() {
 
 // ─── Projects ────────────────────────────────────────────────────────────────
 const PROJECTS = [
+   {
+    title: "EduNex LMS",
+    description:
+      "A production-ready Learning Management System backend built with Spring Boot featuring JWT authentication, role-based access control, course management, file uploads, and RESTful APIs. Designed with clean architecture, scalable database design, and secure API development practices.",
+    tech: [
+      "Java",
+      "Spring Boot",
+      "Spring Security",
+      "JWT",
+      "Spring Data JPA",
+      "Hibernate",
+      "MySQL",
+      "Docker",
+      "Swagger",
+      "Maven",
+    ],
+    github: "https://github.com/amansingh-gh/EduNext--Backend",
+    demo: "",
+    url: "https://github.com/amansingh-gh/EduNext--Backend",
+    featured: true,
+    category: "Backend Development",
+    gradient: "from-emerald-500 via-green-500 to-teal-500",
+    glowColor: "rgba(16,185,129,0.25)",
+    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=1200&h=675&fit=crop&auto=format",
+    imageAlt: "EduNex Learning Management System",
+  },
+
+  {
+    title: "Notes API",
+    description:
+      "A secure RESTful Notes Management API that enables users to create, update, delete, and organize personal notes with JWT-based authentication. Built using layered architecture, JPA relationships, validation, exception handling, and clean backend design principles.",
+    tech: [
+      "Java",
+      "Spring Boot",
+      "Spring Security",
+      "JWT",
+      "Spring Data JPA",
+      "Hibernate",
+      "MySQL",
+      "Swagger",
+      "Maven",
+    ],
+    github: "https://github.com/amansingh-gh/SecureNotes--Backend",
+    demo: "",
+    url: "https://github.com/amansingh-gh/SecureNotes--Backend",
+    featured: true,
+    category: "Backend Development",
+    gradient: "from-orange-500 via-red-500 to-pink-500",
+    glowColor: "rgba(249,115,22,0.25)",
+    image:"https://images.unsplash.com/photo-1636390877494-3ba0c41c7e5e?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    imageAlt: "Notes Management REST API",
+  },
+    {
+    title: "Heart-AI",
+    description:
+      "An intelligent cardiovascular diagnosis platform combining machine learning and deep learning to analyze clinical data and ECG images for real-time heart disease prediction with an interactive analytics dashboard.",
+    tech: ["Python", "Flask", "TensorFlow", "XGBoost", "SQLite", "Chart.js"],
+    github: "https://github.com/amansingh-gh/Heart-AI",
+    demo: "https://heart-disease-pred-4z15.onrender.com/",
+    url: "https://heart-disease-pred-4z15.onrender.com/",
+    featured: true,
+    category: "Artificial Intelligence",
+    gradient: "from-red-500 to-pink-500",
+    glowColor: "rgba(239,68,68,0.25)", // matched with red/pink gradient
+    image:
+      "https://images.unsplash.com/photo-1682706841291-d4aadc6fde6c?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=1200&h=675&fit=crop&auto=format",
+    imageAlt: "Heart-AI analytics dashboard",
+  },
   {
     title: "ResumeIQ AI",
     description:
@@ -830,23 +911,8 @@ const PROJECTS = [
     gradient: "from-blue-500 via-indigo-500 to-purple-500",
     glowColor: "rgba(99,102,241,0.25)",
     image:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=675&fit=crop&auto=format",
+      "https://plus.unsplash.com/premium_photo-1771777895332-f9f89ddfe157?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=1200&h=675&fit=crop&auto=format",
     imageAlt: "AI resume analysis interface",
-  },
-  {
-    title: "Heart-AI",
-    description:
-      "An intelligent cardiovascular diagnosis platform combining machine learning and deep learning to analyze clinical data and ECG images for real-time heart disease prediction with an interactive analytics dashboard.",
-    tech: ["Python", "Flask", "TensorFlow", "XGBoost", "SQLite", "Chart.js"],
-    github: "https://github.com/amansingh-gh/Heart-AI",
-    demo: "https://heart-disease-pred-4z15.onrender.com/",
-    url: "https://heart-disease-pred-4z15.onrender.com/",
-    featured: true,
-    category: "Artificial Intelligence",
-    gradient: "from-red-500 to-pink-500",
-    glowColor: "rgba(239,68,68,0.25)", // matched with red/pink gradient
-    image: "https://images.unsplash.com/photo-1682706841291-d4aadc6fde6c?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=1200&h=675&fit=crop&auto=format",
-    imageAlt: "Heart-AI analytics dashboard",
   },
   {
     title: "SimpleSolHub",
@@ -860,7 +926,8 @@ const PROJECTS = [
     category: "Marketplace Platform",
     gradient: "from-indigo-500 to-blue-500",
     glowColor: "rgba(99,102,241,0.25)", // matched with indigo gradient
-    image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1200&h=675&fit=crop&auto=format",
+    image:
+      "https://plus.unsplash.com/premium_photo-1661767467261-4a4bed92a507?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=1200&h=675&fit=crop&auto=format",
     imageAlt: "SimpleSolHub service marketplace",
   },
   {
@@ -875,7 +942,8 @@ const PROJECTS = [
     category: "Data Science",
     gradient: "from-emerald-500 to-teal-400",
     glowColor: "rgba(16,185,129,0.25)", // matched with emerald gradient
-    image: "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=1200&h=675&fit=crop&auto=format",
+    image:
+      "https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?w=1200&h=675&fit=crop&auto=format",
     imageAlt: "AirVision environmental dashboard",
   },
   {
@@ -890,7 +958,8 @@ const PROJECTS = [
     category: "Backend Engineering",
     gradient: "from-sky-500 to-blue-500",
     glowColor: "rgba(14,165,233,0.25)", // matched with sky gradient
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=675&fit=crop&auto=format",
+    image:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=675&fit=crop&auto=format",
     imageAlt: "Backend code structure and API",
   },
   {
@@ -905,7 +974,8 @@ const PROJECTS = [
     category: "Backend Engineering",
     gradient: "from-green-500 to-emerald-400",
     glowColor: "rgba(34,197,94,0.25)", // matched with green gradient
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=675&fit=crop&auto=format",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=675&fit=crop&auto=format",
     imageAlt: "Spring Boot architecture visualization",
   },
 ];
@@ -937,7 +1007,9 @@ function BrowserMockup({
         <div className="flex-1 flex items-center gap-2 px-3 py-1 rounded-md bg-[#0D0D12] border border-white/5 max-w-[260px] mx-auto">
           <div className="w-2 h-2 rounded-full bg-emerald-400/70 flex-shrink-0" />
           <span className="text-[10px] text-slate-500 truncate font-mono tracking-tight">
-            {url === "#" ? `${title.toLowerCase().replace(/\s+g/, "-")}.vercel.app` : url.replace(/^https?:\/\//, '')}
+            {url === "#"
+              ? `${title.toLowerCase().replace(/\s+g/, "-")}.vercel.app`
+              : url.replace(/^https?:\/\//, "")}
           </span>
         </div>
       </div>
@@ -985,10 +1057,12 @@ function ProjectCard({
         boxShadow: "0 4px 24px rgba(0,0,0,0.4)",
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLDivElement).style.boxShadow = `0 20px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.1), 0 0 80px ${project.glowColor}`;
+        (e.currentTarget as HTMLDivElement).style.boxShadow =
+          `0 20px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.1), 0 0 80px ${project.glowColor}`;
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLDivElement).style.boxShadow = "0 4px 24px rgba(0,0,0,0.4)";
+        (e.currentTarget as HTMLDivElement).style.boxShadow =
+          "0 4px 24px rgba(0,0,0,0.4)";
       }}
     >
       {/* Subtle top gradient line */}
@@ -1008,7 +1082,6 @@ function ProjectCard({
 
       {/* Card body */}
       <div className="flex flex-col flex-1 p-6 pt-5 gap-4">
-
         {/* Row: badges + action buttons */}
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
@@ -1076,7 +1149,11 @@ function Projects() {
         <FadeIn>
           <SectionHeader
             label="Portfolio"
-            title={<>Featured <GradientText>Projects</GradientText></>}
+            title={
+              <>
+                Featured <GradientText>Projects</GradientText>
+              </>
+            }
             subtitle="A selection of projects I'm proud to have built — from idea to production"
           />
         </FadeIn>
@@ -1197,6 +1274,15 @@ function Education() {
 // ─── Certifications ───────────────────────────────────────────────────────────
 
 const CERTS = [
+    {
+    org: "Udemy",
+    name: "Java",
+    date: "May 2025",
+    gradient: "from-orange-500 to-amber-400",
+    abbr: "Udemy",
+    // verifyUrl:
+      // "https://drive.google.com/file/d/1-6055q-yzv4hNpHZ_rB48hbUfnrn6310/view?usp=drive_link",
+  },
   {
     org: "Sharda Informatics",
     name: "Data Visualization using Power BI",
@@ -1418,7 +1504,7 @@ const CONTACT_INFO = [
     value: "+91 6203553465",
     href: "tel:+916203553465",
   },
-  { icon: MapPin, label: "Location", value: "New Delhi, India", href: "#" },
+  { icon: MapPin, label: "Location", value: "Gurugram, India", href: "#" },
   {
     icon: Linkedin,
     label: "LinkedIn",
